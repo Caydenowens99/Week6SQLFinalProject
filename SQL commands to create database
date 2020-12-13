@@ -1,0 +1,23 @@
+create table meal_type (
+meal_id int (10) not null,
+meal_classification varchar (50) not null,
+primary key (meal_id)
+);
+
+create table category (
+category_id int(10) not null,
+meal_type varchar(50) not null,
+primary key (category_id)
+);
+
+create table Meal (
+meal_id int (10) not null auto_increment,
+meal_typeFK int (10) not null,
+categoryFK int(10) not null,
+meal_name varchar(50) not null,
+prep_time int (50) not null,
+price float (50) not null,
+primary key(meal_id),
+foreign key (meal_typeFK) references meal_type(meal_id),
+foreign key (categoryFK) references category(category_id)
+);
